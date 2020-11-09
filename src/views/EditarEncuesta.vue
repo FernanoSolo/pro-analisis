@@ -1,8 +1,8 @@
 <template>
     <div>
-        <v-container>
+         <v-container>
         <div class="headline"  style=" color: #004cac; font-weight: 700; ">
-                      <h2>  Nueva Encuesta </h2>
+                      <h2>  Editar Encuesta </h2>
                     </div>
                
             
@@ -16,28 +16,39 @@
           :items="items"
           label="Solo field"
           solo
+          :value="tipo"
         ></v-select>
      </v-col>
         <Preguntas :tipoPregunta="tipo" ></Preguntas>
-        <AccionEncuesta :accion="CrearEncuesta" accionName="Crear"></AccionEncuesta>
-
+        <AccionEncuesta :accion="EditarEncuesta" accionName="Editar"></AccionEncuesta>
+        
+    
         </v-container>
     </div>
 </template>
 
 <script>
-
 import { mapMutations, mapGetters, mapActions } from 'vuex'
 import InfoEncuesta from '@/components/InfoEncuesta'
 import Preguntas from '@/components/Preguntas'
 import AccionEncuesta from '@/components/AccionEncuesta'
 export default {
-    name: 'crear-encuesta',
+    name: 'editar-encuesta',
     data(){
         return{
             items: ['Opción única', 'Opción múltiple', 'Formato texto'],
-            tipo: 'Opción única'
+            tipo: ''
         }
+        
+        
+    },
+     created(){
+             this.getEncuesta(this.$route.params.id)
+            
+    },
+    mounted(){
+        
+        this.tipo = this.encuesta.tipo
         
     },
     components: {
@@ -47,13 +58,13 @@ export default {
     },
     methods: {
         ...mapMutations('encuesta',['resetPreguntas','actualizarTipo']),
-        ...mapActions('encuesta',['crear']),
+        ...mapActions('encuesta',['actualizarEncuesta','getEncuesta']),
 
-        async CrearEncuesta(){
+        async EditarEncuesta(){
              try {
-                 console.log("Hola")
-         let validacion = await this.crear();
-         console.log(validacion)
+                 
+         let validacion = await this.actualizarEncuesta(this.$route.params.id);
+        //console.log(validacion)
          if(validacion===false){
              this.$router.push('/Dashboard');
          }
@@ -67,6 +78,7 @@ export default {
     computed:{
          ...mapGetters('encuesta',{encuesta:'nuevaEncuesta'})
     },
+    
      watch: {
     
     tipo: function (){

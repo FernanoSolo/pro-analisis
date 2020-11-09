@@ -33,9 +33,9 @@
             <v-list-item-icon>
               <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
-         <v-btn icon class="ml-5" to="/Loguin">
+         <v-btn icon class="ml-5" to="/Dashboard">
         
-          <v-list-item-title>Loguin</v-list-item-title>
+          <v-list-item-title>Dashboard</v-list-item-title>
       </v-btn>
             
          
