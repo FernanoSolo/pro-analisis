@@ -23,7 +23,8 @@ export default {
     name: 'dashboard',
     created(){
         this.listarEncestas()
-        this.resetEncuesta()
+        this.resetEncuesta()    
+        this.consulta()
     },
     components:{
       CardEncuesta
@@ -33,8 +34,8 @@ export default {
   },
   methods:{
        ...mapActions('encuesta',['listarEncestas']),
-       ...mapMutations('encuesta',['resetEncuesta'])
-       
+       ...mapMutations('encuesta',['resetEncuesta']),      
+        ...mapActions('graficas',['consulta']),
   }
 }
 </script>
