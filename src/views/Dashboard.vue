@@ -2,7 +2,7 @@
     <div>
         <v-container>
 
-             <v-row dense justify="center">
+             <v-row dense justify="center" v-if="encuestas">
 
         <CardEncuesta  v-for="encuesta in encuestas" :key="encuesta.id" :titulo="encuesta.titulo" :descripcion="encuesta.descripcion" :id="encuesta.id" :tipo="encuesta.tipo" :estado="encuesta.estado" ></CardEncuesta>
             </v-row>
@@ -24,7 +24,7 @@ export default {
     created(){
         this.listarEncestas()
         this.resetEncuesta()    
-        this.consulta()
+        
     },
     components:{
       CardEncuesta
@@ -35,7 +35,7 @@ export default {
   methods:{
        ...mapActions('encuesta',['listarEncestas']),
        ...mapMutations('encuesta',['resetEncuesta']),      
-        ...mapActions('graficas',['consulta']),
+        
   }
 }
 </script>

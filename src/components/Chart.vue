@@ -5,26 +5,23 @@ import { Bar } from 'vue-chartjs'
  import {mapState} from 'vuex'
 export default {
   extends: Bar,
- props: [ 'pregunta', 'respuestaSeleccionada' ],
+ props: [ 'pregunta', 'respuestas', 'totalRespuesta' ],
  data(){
    return{
-     preguntaClone: this.pregunta,
-     respuestasClone: this.respuestaSeleccionada
+    
    }
  },
   mounted () {
     // Overwriting base render method with actual data.
-    console.log(this.respuestasClone)
-     console.log(this.pregunta)
-    
+  
     this.renderChart({
       responsive: true,
-      labels: this.respuestasClone,
+      labels: this.respuestas,
       datasets: [
         {
-          label: 'Respuestas',
+          label: this.pregunta,
           backgroundColor: '#f87979',
-          data: [40, 20, 12, 39, 10, 40, 39, 4, 40, 20, 12, 11]
+          data:this.totalRespuesta
         }
       ]
     })

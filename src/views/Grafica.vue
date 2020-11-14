@@ -1,7 +1,10 @@
 <template>
   <div class="small">
-    <chart v-for="encuesta in resultados" :key="encuesta.pregunta" :pregunta="encuesta.pregunta" :respuestaSeleccionada="encuesta.respuestaSeleccionada" > </chart>
-    {{ resultados.pregunta }}
+    
+    <div v-if="carga===false">
+     
+    <chart v-for="encuesta in grafica" :key="encuesta.pregunta" :pregunta="encuesta.pregunta" :respuestas="encuesta.respuestas" :totalRespuesta="encuesta.totalRespuesta" > </chart>
+    </div>
     </div>
 </template>
 
@@ -13,17 +16,20 @@ export default {
   name:'grafica',
   created(){
     this.resetResultados()
-    this.consulta()
+    this.consulta(this.$route.params.id)
   },
   components: {
       chart
     },
     methods: {
       ...mapActions('graficas',['consulta']),
-       ...mapMutations('graficas',['resetResultados']),      
+       ...mapMutations('graficas',['resetResultados']),   
+       ...mapActions('graficas',['consulta']),   
     },
      computed: {
-      ...mapGetters('graficas',{resultados:'resultados'})
+      ...mapGetters('graficas',{grafica:'grafica'}),
+      ...mapGetters('graficas',{carga:'carga'})
+      
   },
 
 }

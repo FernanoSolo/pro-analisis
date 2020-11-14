@@ -54,7 +54,7 @@ const routes = [
             import ( /* webpackChunkName: "about" */ '../views/EditarEncuesta.vue')
     },
     {
-        path: '/Grafica',
+        path: '/Dashboard/Grafica/:id',
         name: 'LineChartContainer',
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/Grafica.vue')

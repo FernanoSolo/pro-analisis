@@ -45,9 +45,9 @@
       <v-btn
         color="orange"
         text
-        
+        :to="`/Dashboard/Grafica/${id}`"
       >
-        Share
+        Graficas
       </v-btn>
 
       <v-btn
