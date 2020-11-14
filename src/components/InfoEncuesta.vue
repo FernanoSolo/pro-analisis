@@ -5,7 +5,7 @@
             <v-row justify="center">
                 
                 <v-col cols="8"  >
-                    <v-text-field label="Titulo de la encuesta" :rules="[rules.required, rules.counter]" :value="encuesta.titulo" @input="actualizarTitulo" ></v-text-field>
+                    <v-text-field label="Titulo de la encuesta" :rules="[rules.required, rules.counter]" maxlength="40" :value="encuesta.titulo" @input="actualizarTitulo" ></v-text-field>
                 </v-col>
             </v-row>
             <v-row justify="center">

@@ -8,8 +8,8 @@
                     <v-spacer> </v-spacer>
                    <v-btn to="/Dashboard" >Cancelar </v-btn>
                     <v-btn  color="warning" @click="resetEncuesta">Reset</v-btn>
-                     <v-btn @click="accion" dark color="purple"  v-if="!encuesta.titulo==''&&!encuesta.descripcion==''" >{{accionName}}</v-btn>
-
+                     <v-btn @click="accion" dark color="purple"   >{{accionName}}</v-btn>
+<!-- v-if="!encuesta.titulo==''&&!encuesta.descripcion==''" -->
             </v-card-actions>
         </v-container>
 

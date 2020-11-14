@@ -59,6 +59,7 @@
                                     :key="j"
                                     :label="respuesta.respuesta"
                                     :value="respuesta.respuesta"
+                                    :name="respuesta.respuesta"
                                     
                                     ></v-checkbox>
                                 <!-- </v-radio-group> -->
@@ -177,13 +178,13 @@ export default {
             })
             
             if (this.step < this.encuesta.preguntas.length) {
-                     this.step++;
+                    //  this.step++;
                 this.res =[];
                 }else {
                     this.done = true;
                 }
 
-            
+            this.step++;
 
         }
     },

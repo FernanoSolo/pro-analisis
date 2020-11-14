@@ -54,6 +54,7 @@
         color="orange"
         text
         :to="`/Encuesta/${id}`"
+        name="realizar-encuesta"
       >
         Realizar
       </v-btn>
@@ -61,6 +62,7 @@
         color="orange"
         text
         :to="`/Editar/${id}`"
+        name="editar-encuesta"
       >
         Editar
       </v-btn>

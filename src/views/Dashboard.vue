@@ -7,7 +7,7 @@
         <CardEncuesta  v-for="encuesta in encuestas" :key="encuesta.id" :titulo="encuesta.titulo" :descripcion="encuesta.descripcion" :id="encuesta.id" :tipo="encuesta.tipo" :estado="encuesta.estado" ></CardEncuesta>
             </v-row>
         </v-container>
-            <v-btn fab dark fixed right large bottom color="indigo" to='/Dashboard/Crear' class="mx-4" >
+            <v-btn fab dark fixed right large bottom color="indigo" to='/Dashboard/Crear' class="mx-4" name="nueva-encuesta" >
             <v-icon>mdi-plus</v-icon>
          </v-btn>
       
